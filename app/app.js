@@ -1,8 +1,6 @@
 // var auth = require('./routes/auth');
 // var example = require('./routes/example');
-if (process.env.NODE_ENV === 'development') {
-    const rpio = require('rpio')
-}
+// const rpio = require('rpio')
 
 module.exports = function (app) {
     app.get('/', function(req, res){
@@ -12,12 +10,10 @@ module.exports = function (app) {
         res.json(req.body)
     })
     app.post('/led', function (req, res) {
-        if (process.env.NODE_ENV === 'development') {
-            rpio.init({mapping: 'gpio'})
-            rpio.open(4, rpio.OUTPUT)
-            rpio.write(4, + parseInt(req.body.led, 10))
-            rpio.close(4)
-        }
+        // rpio.init({mapping: 'gpio'})
+        // rpio.open(4, rpio.OUTPUT)
+        // rpio.write(4, + parseInt(req.body.led, 10))
+        // rpio.close(4)
         res.json(req.body)
     })
 
