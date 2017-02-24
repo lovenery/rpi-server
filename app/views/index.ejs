@@ -14,9 +14,10 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script>
 var led = 0
+var gpio = 4
 $('#test').click(function () {
     led = led ^ 1 // XOR
-    let data = { led }
+    let data = { led, gpio }
     $.ajax({
         url: '/led',
         method: 'POST',

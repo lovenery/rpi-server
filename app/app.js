@@ -12,8 +12,8 @@ module.exports = function (app) {
     })
     app.post('/led', function (req, res) {
         let led = parseInt(req.body.led, 10)
-        rpio.open(4, rpio.OUTPUT)
-        rpio.write(4, led)
+        rpio.open(req.body.gpio, rpio.OUTPUT)
+        rpio.write(req.body.gpio, led)
         res.json(req.body)
     })
 
