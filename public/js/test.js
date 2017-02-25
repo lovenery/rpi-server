@@ -1,5 +1,5 @@
 var led = 0
-var gpio = 19
+var gpio = 35
 $('#test').click(function () {
     led = led ^ 1 // XOR
     let data = { led, gpio }
