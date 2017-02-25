@@ -12,25 +12,6 @@
     <button id="test">Post Test</button>
     
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script>
-var led = 0
-var gpio = 19
-$('#test').click(function () {
-    led = led ^ 1 // XOR
-    let data = { led, gpio }
-    $.ajax({
-        url: '/led',
-        method: 'POST',
-        data: data,
-        success: function (data) {
-            console.log(data)
-        },
-        error: function (data) {
-            console.log(data)
-        }
-    })
-})
-
-</script>
+<script src="js/test.js"></script>
 </body>
 </html>

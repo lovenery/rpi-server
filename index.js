@@ -19,6 +19,7 @@ app.use(morgan('dev'))
 app.use(require('./config/cors'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
+app.use(express.static('public'))
 
 // view engine
 app.set('views', require('path').join(__dirname, 'app/views'))
