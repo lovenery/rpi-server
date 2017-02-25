@@ -2,7 +2,7 @@ var canvas, context, host;
 function init(h = '') {
     host = h
     canvas = document.getElementById('streamCanvas');
-    canvas.width = window.innerWidth - 8;
+    canvas.width = window.innerWidth;
     canvas.height = canvas.width / 16 * 9;
     context = canvas.getContext('2d');
     animate();
