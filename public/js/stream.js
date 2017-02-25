@@ -14,7 +14,7 @@ function animate() {
             console.log('Drawing image');
             context.drawImage(piImage, 0, 0, canvas.width, canvas.height);
         }
-        piImage.src = "/html/cam_pic.php?time=" + new Date().getTime();
+        piImage.src = host + "/html/cam_pic.php?time=" + new Date().getTime();
     }
     requestAnimationFrame(animate);
 }
