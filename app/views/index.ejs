@@ -20,6 +20,8 @@
     <button id="test">Post Test</button>
     <button class="move" value="f">Forward</button>
     <button class="move" value="b">Backward</button>
+    <button class="move" value="l">Turn Left</button>
+    <button class="move" value="r">Turn Right</button>
     <canvas id="streamCanvas"></canvas>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -28,7 +30,7 @@
 <script type="text/javascript">
     stream_init("<%= stream %>")
     $('.move').click(function () {
-        console.log(this.value, $(this).val())
+        // console.log(this.value, $(this).val())
         let direction = this.value
         let data = { direction }
         $.ajax({

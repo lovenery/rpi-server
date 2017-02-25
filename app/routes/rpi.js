@@ -19,6 +19,11 @@ router.post('/move', function(req, res){
             break;
         case "b":
             Move.backward()
+        case "l":
+            Move.trunleft()
+            break;
+        case "r":
+            Move.trunright()
         default:
             break;
     }
