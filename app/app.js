@@ -4,7 +4,10 @@ const rpi = require('./routes/rpi');
 
 module.exports = function (app) {
     app.get('/', function(req, res){
-        res.render('index', { userAgent: req.headers['user-agent'] })
+        res.render('index', { 
+            userAgent: req.headers['user-agent'],
+            host: process.env.APP_URL
+        })
     })
     app.post('/', function (req, res) {
         res.json(req.body)

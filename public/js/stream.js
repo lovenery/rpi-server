@@ -1,6 +1,6 @@
-var canvas, context;
-init();
-function init() {
+var canvas, context, host;
+function init(h = '') {
+    host = h
     canvas = document.getElementById('streamCanvas');
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
