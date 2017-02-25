@@ -16,18 +16,19 @@ router.post('/move', function(req, res){
     switch (direction) {
         case "f":
             Move.forward()
-            break;
+            break
         case "b":
             Move.backward()
+            break
         case "l":
             Move.trunleft()
-            break;
+            break
         case "r":
             Move.trunright()
         default:
-            break;
+            break
     }
     res.json(req.body)
-});
+})
 
 module.exports = router
