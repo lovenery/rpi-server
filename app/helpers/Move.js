@@ -31,7 +31,7 @@ function forward() {
     rpio.msleep(sleepTime);
     stop()
 }
-function backword() {
+function backward() {
     rpio.write(lpin1, rpio.LOW);
     rpio.write(lpin2, rpio.HIGH);
     rpio.write(rpin1, rpio.LOW);
