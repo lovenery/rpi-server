@@ -1,0 +1,20 @@
+var canvas, context;
+init();
+function init() {
+    canvas = document.getElementById('streamCanvas');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    context = canvas.getContext('2d');
+    animate();
+}
+function animate() {
+    if (context) {
+        var piImage = new Image();
+        piImage.onload = function() {
+            console.log('Drawing image');
+            context.drawImage(piImage, 0, 0, canvas.width, canvas.height);
+        }
+        piImage.src = "/html/cam_pic.php?time=" + new Date().getTime();
+    }
+    requestAnimationFrame(animate);
+}
