@@ -23,8 +23,8 @@ router.post('/move', function(req, res){
     //     default:
     //         break;
     // }
-    const pin1 = 16;
-    const pin2 = 18;
+    const pin1 = 23;
+    const pin2 = 24;
     rpio.open(pin1, rpio.OUTPUT, rpio.LOW);
     rpio.open(pin2, rpio.OUTPUT, rpio.LOW);
 
