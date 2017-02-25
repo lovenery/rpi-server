@@ -13,16 +13,27 @@ router.post('/led', function(req, res){
 })
 
 router.post('/move', function(req, res){
-    let direction = req.body.direction
-    switch (direction) {
-        case "f":
-            Move.forward()
-            break;
-        case "b":
-            Move.backward()
-        default:
-            break;
-    }
+    // let direction = req.body.direction
+    // switch (direction) {
+    //     case "f":
+    //         Move.forward()
+    //         break;
+    //     case "b":
+    //         Move.backward()
+    //     default:
+    //         break;
+    // }
+    const pin1 = 16;
+    const pin2 = 18;
+    rpio.open(pin1, rpio.OUTPUT, rpio.LOW);
+    rpio.open(pin2, rpio.OUTPUT, rpio.LOW);
+
+    rpio.write(pin1, rpio.HIGH);
+    rpio.sleep(1);
+    rpio.write(pin1, rpio.LOW);
+
+    rpio.msleep(1000);
+
     res.json(req.body)
 });
 
