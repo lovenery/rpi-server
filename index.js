@@ -36,4 +36,4 @@ error(app)
 // server
 var server = http.createServer(app);
 server.listen(process.env.PORT);
-console.log(`Server running on http://localhost:${process.env.PORT}`);
+console.log(`Server running on ${process.env.APP_URL}:${process.env.PORT}`);

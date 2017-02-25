@@ -6,7 +6,7 @@ module.exports = function (app) {
     app.get('/', function(req, res){
         res.render('index', { 
             userAgent: req.headers['user-agent'],
-            host: process.env.APP_URL
+            stream: process.env.STREAM
         })
     })
     app.post('/', function (req, res) {
