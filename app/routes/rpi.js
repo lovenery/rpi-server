@@ -13,18 +13,18 @@ router.post('/led', function(req, res){
 })
 router.post('/move', function(req, res){
     let direction = req.body.direction
-    console.log(direction)
     switch (direction) {
         case "f":
             Move.forward()
+            res.json("success")
             break;
         case "b":
             Move.backward()
+            res.json("success")
         default:
             res.json("fail")
             break;
     }
-    res.json(req.body)
 });
 
 module.exports = router
