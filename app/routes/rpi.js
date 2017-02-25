@@ -11,20 +11,19 @@ router.post('/led', function(req, res){
     rpio.write(gpio, led)
     res.json(req.body)
 })
+
 router.post('/move', function(req, res){
     let direction = req.body.direction
     switch (direction) {
         case "f":
             Move.forward()
-            res.json("success")
             break;
         case "b":
             Move.backward()
-            res.json("success")
         default:
-            res.json("fail")
             break;
     }
+    res.json(req.body)
 });
 
 module.exports = router
