@@ -1,7 +1,6 @@
 // var auth = require('./routes/auth');
 // var example = require('./routes/example');
-const rpio = require('rpio')
-rpio.init({mapping: 'gpio'})
+const rpi = require('./routes/rpi');
 
 module.exports = function (app) {
     app.get('/', function(req, res){
@@ -10,14 +9,7 @@ module.exports = function (app) {
     app.post('/', function (req, res) {
         res.json(req.body)
     })
-    app.post('/led', function (req, res) {
-        let gpio = parseInt(req.body.gpio)
-        let led = parseInt(req.body.led, 10)
-        rpio.open(gpio, rpio.OUTPUT)
-        rpio.write(gpio, led)
-        res.json(req.body)
-    })
-
+    app.use(rpi);
     // app.use('/auth', auth);    
     // app.use('/example', example);
 }
