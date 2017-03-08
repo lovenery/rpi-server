@@ -1,4 +1,10 @@
 var canvas, context, host;
+var isOpenCamera = true;
+$('#camera').click(function () {
+    isOpenCamera = !isOpenCamera
+    console.log(isOpenCamera)
+})
+
 function stream_init(h = '') {
     host = h
     canvas = document.getElementById('streamCanvas');
@@ -8,7 +14,7 @@ function stream_init(h = '') {
     animate();
 }
 function animate() {
-    if (context) {
+    if (context && isOpenCamera) {
         var piImage = new Image();
         piImage.onload = function() {
             console.log('Drawing image');
