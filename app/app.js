@@ -1,5 +1,3 @@
-// var auth = require('./routes/auth');
-// var example = require('./routes/example');
 const rpi = require('./routes/rpi');
 
 module.exports = function (app) {
@@ -13,6 +11,4 @@ module.exports = function (app) {
         res.json(req.body)
     })
     app.use(rpi);
-    // app.use('/auth', auth);    
-    // app.use('/example', example);
 }
