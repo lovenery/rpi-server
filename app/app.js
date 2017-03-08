@@ -4,7 +4,8 @@ module.exports = function (app) {
     app.get('/', function(req, res){
         res.render('index', { 
             userAgent: req.headers['user-agent'],
-            stream: process.env.STREAM
+            // stream: process.env.STREAM
+            stream: `${require('os').networkInterfaces().wlan0[0].address}:8087`
         })
     })
     app.post('/', function (req, res) {
