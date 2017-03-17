@@ -2,6 +2,7 @@ var express = require('express')
 var router = express.Router()
 const rpio = require('rpio') ///
 const Move = require('../helpers/Move') ///
+const Sonic = require('../helpers/Sonic') ///
 
 // router.post('/led', function(req, res){
 //     let gpio = parseInt(req.body.gpio)
@@ -10,6 +11,12 @@ const Move = require('../helpers/Move') ///
 //     rpio.write(gpio, led) ///
 //     res.json(req.body)
 // })
+
+router.post('/sonic', function(req, res) {
+    Sonic.get(function (ds) {
+        res.json(ds)
+    })
+})
 
 router.post('/move', function(req, res){
     let direction = req.body.direction
