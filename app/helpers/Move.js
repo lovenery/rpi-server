@@ -24,14 +24,9 @@ function stop() {
     rpio.write(lpin2, rpio.LOW);
     rpio.write(rpin1, rpio.LOW);
     rpio.write(rpin2, rpio.LOW);
-    if (process.env.direction == 'f' || process.env.direction == 'b') {
-        Sonic.get(function (ds) {
-            if (ds > 30) {
-                start()
-            }
-        })   
-    }
+    resume()
 }
+
 const sleepTime = 500
 function forward() {
     rpio.write(lpin1, rpio.HIGH);
@@ -81,5 +76,15 @@ function start() {
             trunright()
         default:
             break
+    }
+}
+
+function resume() {
+    if (process.env.direction == 'f' || process.env.direction == 'b') {
+        Sonic.get(function (ds) {
+            if (ds > 30) {
+                start()
+            }
+        })
     }
 }
