@@ -7,7 +7,7 @@ module.exports = function (app) {
         // let s = `http://${net.wlan0[0].address}:8087`
         let s = process.env.STREAM
         if (typeof net.wlan0 != 'undefined') {
-            s = net.wlan0[0].address
+            s = `http://${net.wlan0[0].address}:8087`
         }
         res.render('index', {
             userAgent: req.headers['user-agent'],
