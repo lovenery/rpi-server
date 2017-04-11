@@ -7,10 +7,10 @@ module.exports = {
     trunright
 }
 
-const lpin1 = 38;
-const lpin2 = 40;
-const rpin1 = 35;
-const rpin2 = 37;
+const lpin1 = 35;
+const lpin2 = 37;
+const rpin1 = 38;
+const rpin2 = 40;
 
 rpio.open(lpin1, rpio.OUTPUT, rpio.LOW);
 rpio.open(lpin2, rpio.OUTPUT, rpio.LOW);
