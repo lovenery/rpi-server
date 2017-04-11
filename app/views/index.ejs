@@ -36,8 +36,10 @@
 <script src="js/sonic.js"></script>
 <script src="js/move.js"></script>
 <script type="text/javascript">
-stream_init("<%= stream %>")
 sonic_init()
+$(document).ready(function () {
+  stream_init("<%= stream %>")  
+})
 </script>
 </body>
 </html>
