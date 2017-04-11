@@ -1,59 +1,69 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Rpi</title>
-    <style type="text/css">
-        body {
-            margin: 0;
-            overflow-x: hidden;
-        }
-    </style>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rpi</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
 </head>
 <body>
-    <p>
-        User Agent: <%= userAgent %>
-    </p>
-    <p>
-        Camera Address: <a href="<%= stream %>"><%= stream %></a>
-    </p>
-    <div>
-        Ultra Sonic <mark id="sonic_text">Loading</mark> cm
-    </div>
-    <!-- <button id="camera">Start/Stop Camera</button> -->
-    <button id="sonic">Ultra Sonic</button>
-    <!-- <button id="test">Post Test</button> -->
-    <button class="move" value="f">Forward</button>
-    <button class="move" value="b">Backward</button>
-    <button class="move" value="l">Turn Left</button>
-    <button class="move" value="r">Turn Right</button>
-    <canvas id="streamCanvas"></canvas>
 
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div class="mdl-layout__header-row">
+      <span class="mdl-layout-title">專題</span>
+      <div class="mdl-layout-spacer"></div>
+      <nav class="mdl-navigation mdl-layout--large-screen-only">
+        <a href="<%= stream %>" class="mdl-navigation__link">Camera Address: <%= stream %></a>
+      </nav>
+    </div>
+  </header>
+  <div class="mdl-layout__drawer">
+    <span class="mdl-layout-title">相關連結</span>
+    <nav class="mdl-navigation">
+      <a class="mdl-navigation__link" href="">Link</a>
+      <a class="mdl-navigation__link" href="">Link</a>
+      <a class="mdl-navigation__link" href="">Link</a>
+      <a class="mdl-navigation__link" href="">Link</a>
+    </nav>
+  </div>
+  <main class="mdl-layout__content">
+    <%- include main.ejs %>
+  </main>
+  <%- include footer.ejs %>
+</div>
+
+<!-- <button id="camera">Start/Stop Camera</button> -->
+<!-- <button id="test">Post Test</button> -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
 <script src="js/test.js"></script>
 <script src="js/stream.js"></script>
 <script src="js/sonic.js"></script>
 <script type="text/javascript">
-    stream_init("<%= stream %>")
-    sonic_init()
-    $('.move').click(function () {
-        // console.log(this.value, $(this).val())
-        let direction = this.value
-        let data = { direction }
-        $.ajax({
-            url: '/move',
-            method: 'POST',
-            data: data,
-            success: function (data) {
-                console.log(data)
-            },
-            error: function (data) {
-                console.log(data)
-            }
-        })
-    });
+$(document).ready( function(){
+  stream_init("<%= stream %>")
+  sonic_init()
+
+  $('.move').click(function () {
+  // console.log(this.value, $(this).val())
+  let direction = this.value
+  let data = { direction }
+  $.ajax({
+    url: '/move',
+    method: 'POST',
+    data: data,
+    success: function (data) {
+      console.log(data)
+    },
+    error: function (data) {
+      console.log(data)
+    }
+  })
+});
+});
 </script>
 </body>
 </html>
