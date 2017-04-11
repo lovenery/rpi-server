@@ -34,27 +34,11 @@
 <script src="js/test.js"></script>
 <script src="js/stream.js"></script>
 <script src="js/sonic.js"></script>
+<script src="js/move.js"></script>
 <script type="text/javascript">
 $(document).ready( function(){
   stream_init("<%= stream %>")
   sonic_init()
-
-  $('.move').click(function () {
-  // console.log(this.value, $(this).val())
-  let direction = this.value
-  let data = { direction }
-  $.ajax({
-    url: '/move',
-    method: 'POST',
-    data: data,
-    success: function (data) {
-      console.log(data)
-    },
-    error: function (data) {
-      console.log(data)
-    }
-  })
-});
 });
 </script>
 </body>
