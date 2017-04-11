@@ -24,10 +24,10 @@ function animate() {
             // console.log('Drawing image');
             context.drawImage(piImage, 0, 0, canvas.width, canvas.height);
         }
-        if (host != 'http://localhost:3000') {
-            piImage.src = host + "/html/cam_pic.php?time=" + new Date().getTime()
-        } else {
+        if (host == 'http://localhost:3000') {
             piImage.src = '/img/cam_tmp.jpg'
+        } else {
+            piImage.src = host + "/html/cam_pic.php?time=" + new Date().getTime()
         }
     }
     requestAnimationFrame(animate);
