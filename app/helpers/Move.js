@@ -1,10 +1,12 @@
 const rpio = require('rpio')
+const Sonic = require('./Sonic')
 
 module.exports = {
     forward,
     backward,
     trunleft,
-    trunright
+    trunright,
+    start
 }
 
 const lpin1 = 35;
@@ -22,6 +24,13 @@ function stop() {
     rpio.write(lpin2, rpio.LOW);
     rpio.write(rpin1, rpio.LOW);
     rpio.write(rpin2, rpio.LOW);
+    if (process.env.direction == 'f' || process.env.direction == 'b') {
+        Sonic.get(function (ds) {
+            if (ds > 100) {
+                start()
+            }
+        })   
+    }
 }
 const sleepTime = 500
 function forward() {
@@ -55,4 +64,22 @@ function trunright() {
     rpio.write(rpin2, rpio.LOW);
     rpio.msleep(sleepTime);
     stop()
+}
+
+function start() {
+    switch (process.env.direction) {
+        case "f":
+            forward()
+            break
+        case "b":
+            backward()
+            break
+        case "l":
+            trunleft()
+            break
+        case "r":
+            trunright()
+        default:
+            break
+    }
 }

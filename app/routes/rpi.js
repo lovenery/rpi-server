@@ -20,23 +20,8 @@ router.post('/sonic', function(req, res) {
 
 router.post('/move', function(req, res){
     let direction = req.body.direction
-    ///
-    switch (direction) {
-        case "f":
-            Move.forward()
-            break
-        case "b":
-            Move.backward()
-            break
-        case "l":
-            Move.trunleft()
-            break
-        case "r":
-            Move.trunright()
-        default:
-            break
-    }
-    ///
+    process.env.direction = direction
+    Move.start(direction) ///
     res.json(req.body)
 })
 
