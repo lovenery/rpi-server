@@ -38,7 +38,9 @@
 <script type="text/javascript">
 sonic_init()
 $(document).ready(function () {
-  stream_init("<%= stream %>")  
+  setTimeout(function () {
+    stream_init("<%= stream %>")
+  }, 1000)
 })
 </script>
 </body>
