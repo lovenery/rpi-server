@@ -20,19 +20,11 @@
       </nav>
     </div>
   </header>
-  <div class="mdl-layout__drawer">
-    <span class="mdl-layout-title">相關連結</span>
-    <nav class="mdl-navigation">
-      <a class="mdl-navigation__link" href="">Link</a>
-      <a class="mdl-navigation__link" href="">Link</a>
-      <a class="mdl-navigation__link" href="">Link</a>
-      <a class="mdl-navigation__link" href="">Link</a>
-    </nav>
-  </div>
+  <%- include includes/sidebar.ejs %>
   <main class="mdl-layout__content">
     <%- include main.ejs %>
   </main>
-  <%- include footer.ejs %>
+  <%- include includes/footer.ejs %>
 </div>
 
 <!-- <button id="camera">Start/Stop Camera</button> -->
