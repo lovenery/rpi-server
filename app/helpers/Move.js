@@ -26,7 +26,7 @@ function stop() {
     rpio.write(rpin2, rpio.LOW);
     if (process.env.direction == 'f' || process.env.direction == 'b') {
         Sonic.get(function (ds) {
-            if (ds > 100) {
+            if (ds > 30) {
                 start()
             }
         })   
