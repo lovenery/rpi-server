@@ -81,7 +81,7 @@ function start() {
 
 function resume() {
     if (process.env.direction == 'f' || process.env.direction == 'b') {
-        Sonic.get(function (ds) {
+        Sonic.rget(function (ds) {
             if (ds > 30) {
                 start()
             }
