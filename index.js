@@ -3,13 +3,23 @@ var express = require('express');
 var app = express();
 var http = require('http');
 var bodyParser = require('body-parser');
-var mongoose = require('mongoose');
+// var mongoose = require('mongoose');
 var dotenv = require('dotenv').config();
 const morgan = require('morgan')
+const redis = require('redis')
 
 // database
 // mongoose.Promise = global.Promise;
 // mongoose.connect(process.env.DB_HOST);
+
+// redis
+var client = redis.createClient()
+client.on('connect', function() {
+    console.log('Connected to Redis...')
+})
+client.on("error", function (err) {
+    console.log("Redis Error..." + err)
+})
 
 // setup
 app.use(morgan('dev'))
