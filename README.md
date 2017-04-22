@@ -6,11 +6,14 @@ part of my college independent study project
 - Raspberry Pi Camera Module v2 (does NOT support USB camera)
 - RaspiMJPEG [GitHub](https://github.com/roberttidey/userland/tree/master/host_applications/linux/apps/raspicam)
 - Node.js 6.x or higher
+- Redis
+- https://github.com/lovenery/rpi-sensor
 
 ## Install
 ```bash
-npm install
+git clone git@github.com:lovenery/rpi-server.git
 cd rpi-server
+npm install
 cp .env.example .env
 npm start
 ```
