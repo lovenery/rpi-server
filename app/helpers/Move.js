@@ -1,5 +1,5 @@
 const rpio = require('rpio')
-const Sonic = require('./Sonic')
+const Sensor = require('./Sensor')
 
 module.exports = {
     forward,
@@ -81,7 +81,7 @@ function start() {
 
 function resume() {
     if (process.env.direction == 'f' || process.env.direction == 'b') {
-        Sonic.rget(function (ds) {
+        Sensor.sonic(function (ds) {
             if (ds > 30) {
                 start()
             }
