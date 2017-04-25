@@ -7,6 +7,7 @@
   <title>Rpi</title>
   <link rel="stylesheet" href="lib/material-icons.css">
   <link rel="stylesheet" href="lib/material.indigo-pink.min.css">
+  <link rel="stylesheet" href="css/move.css">
 </head>
 <body>
 
@@ -27,20 +28,25 @@
   <%- include includes/footer.ejs %>
 </div>
 
+<%- include move.ejs %>
+
 <!-- <button id="camera">Start/Stop Camera</button> -->
 <!-- <button id="test">Post Test</button> -->
 <script src="lib/jquery.min.js"></script>
 <script src="lib/material.min.js"></script>
 <script src="js/test.js"></script>
 <script src="js/stream.js"></script>
-<script src="js/sonic.js"></script>
+<script src="js/sensor.js"></script>
 <script src="js/move.js"></script>
 <script type="text/javascript">
-sonic_init()
+sensor_init()
 $(document).ready(function () {
   setTimeout(function () {
     stream_init("<%= stream %>")
   }, 1000)
+  setInterval(function () {
+    temperature_init()
+  }, 10000)
 })
 </script>
 </body>

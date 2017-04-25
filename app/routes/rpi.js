@@ -2,7 +2,7 @@ var express = require('express')
 var router = express.Router()
 const rpio = require('rpio') ///
 const Move = require('../helpers/Move') ///
-const Sonic = require('../helpers/Sonic')
+const Sensor = require('../helpers/Sensor')
 
 // router.post('/led', function(req, res){
 //     let gpio = parseInt(req.body.gpio)
@@ -13,7 +13,12 @@ const Sonic = require('../helpers/Sonic')
 // })
 
 router.post('/sonic', function(req, res) {
-    Sonic.rget(function (ds) {
+    Sensor.sonic(function (ds) {
+        res.json(ds)
+    })
+})
+router.post('/temperature', function(req, res) {
+    Sensor.temperature(function (ds) {
         res.json(ds)
     })
 })

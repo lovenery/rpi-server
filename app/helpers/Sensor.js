@@ -13,15 +13,21 @@ function get(cb) {
 const redis = require('redis')
 const client = redis.createClient()
 
-function rget (cb) {
+function sonic (cb) {
     client.get("distance", (err, reply) => {
+        cb(reply)
+    })
+}
+function temperature (cb) {
+    client.get("temperature", (err, reply) => {
         cb(reply)
     })
 }
 
 module.exports = {
     get,
-    rget
+    sonic,
+    temperature
 }
 
 //exec(cmd, function(error, stdout, stderr) {

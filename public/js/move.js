@@ -8,6 +8,7 @@ $('.move').click(function () {
     data: data,
     success: function (data) {
       console.log(data)
+      sonic_init()
     },
     error: function (data) {
       console.log(data)

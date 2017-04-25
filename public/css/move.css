@@ -1,0 +1,20 @@
+.fix {
+  position: fixed;
+  z-index: 2;
+}
+#fix-down {
+  bottom: 0px;
+  right: 45px;
+}
+#fix-right {
+  bottom: 45px;
+  right: 0px;
+}
+#fix-left {
+  bottom: 45px;
+  right: 90px;
+}
+#fix-up {
+  bottom: 90px;
+  right: 45px;
+}
