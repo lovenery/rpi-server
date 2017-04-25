@@ -4,15 +4,10 @@ function sonic_init () {
         method: 'POST',
         beforeSend: function () {
             $('#sonic_text').text('...')
-        },
-        success: function (data) {
-            console.log(data)
-        },
-        error: function (data) {
-            console.log(data)
         }
     }).then(function (data) {
-        $('#sonic_text').text(data)
+        console.log(data)
+        $('#sonic_text').text(parseInt(data).toFixed(2))
     })
 }
 function temperature_init () {
@@ -21,15 +16,10 @@ function temperature_init () {
         method: 'POST',
         beforeSend: function () {
             $('#temperature_text').text('...')
-        },
-        success: function (data) {
-            console.log(data)
-        },
-        error: function (data) {
-            console.log(data)
         }
     }).then(function (data) {
-        $('#temperature_text').text(data)
+        console.log(data)
+        $('#temperature_text').text(parseInt(data).toFixed(2))
     })
 }
 $('#sonic').click(function () {
