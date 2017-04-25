@@ -11,10 +11,10 @@ rpio.open(pin, rpio.OUTPUT, rpio.LOW)
 
 function toggle() {
   if (!process.env.light) {
-      Light.on()
+      on()
       process.env.light = 1
   } else {
-      Light.off()
+      off()
       process.env.light = 0
   }
 }
