@@ -80,7 +80,7 @@ function start() {
 }
 
 function resume() {
-    if (process.env.direction == 'f' || process.env.direction == 'b') {
+    if (process.env.direction == 'f') {
         Sensor.sonic(function (ds) {
             if (ds > 30) {
                 start()
