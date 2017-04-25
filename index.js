@@ -6,20 +6,6 @@ var bodyParser = require('body-parser');
 // var mongoose = require('mongoose');
 var dotenv = require('dotenv').config();
 const morgan = require('morgan')
-const redis = require('redis')
-
-// database
-// mongoose.Promise = global.Promise;
-// mongoose.connect(process.env.DB_HOST);
-
-// redis
-var client = redis.createClient()
-client.on('connect', function() {
-    console.log('Connected to Redis...')
-})
-client.on("error", function (err) {
-    console.log("Redis Error..." + err)
-})
 
 // setup
 app.use(morgan('dev'))
@@ -27,6 +13,14 @@ app.use(require('./config/cors'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(express.static('public'))
+
+// database
+// mongoose.Promise = global.Promise;
+// mongoose.connect(process.env.DB_HOST);
+
+// redis
+const redis = require('./config/redis')
+redis()
 
 // view engine
 app.set('views', require('path').join(__dirname, 'app/views'))
