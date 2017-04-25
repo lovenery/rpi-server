@@ -1,28 +1,21 @@
-const rpio = require('rpio')
+const exec = require('child_process').exec
+const path = require('path')
+const onLight = path.resolve(__dirname, '../../bin/on_light.py')
+const offLight = path.resolve(__dirname, '../../bin/off_light.py')
 
 module.exports = {
-    toggle,
     on,
     off
 }
 
-const pin = 3
-rpio.open(pin, rpio.OUTPUT, rpio.LOW)
-
-function toggle() {
-  if (!process.env.LIGHT) {
-      on()
-      process.env.LIGHT = 1
-  } else {
-      off()
-      process.env.LIGHT = 0
-  }
-}
-
 function on() {
-  rpio.write(pin, rpio.HIGH)
+  exec(onLight, function(err, stdout, stderr) {
+    cb(stdout)
+  })
 }
 
 function off() {
-  rpio.write(pin, rpio.LOW)
+  exec(offLight, function(err, stdout, stderr) {
+    cb(stdout)
+  })
 }

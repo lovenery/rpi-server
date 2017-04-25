@@ -32,8 +32,17 @@ router.post('/move', function(req, res) {
 })
 
 router.post('/light', function(req, res) {
-    Light.toggle() ///
-    res.json('toggle Light')
+    if (!process.env.LIGHT) {
+        process.env.LIGHT = 1
+        Light.on(() => {
+            res.json('on')
+        })
+    } else {
+        process.env.LIGHT = 0
+        Light.off(() => {
+            res.json('off')
+        })
+    }
 })
 
 module.exports = router
