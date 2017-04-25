@@ -35,12 +35,12 @@ router.post('/light', function(req, res) {
     if (process.env.LIGHT == 'off') {
         process.env.LIGHT = 'on'
         Light.on((r) => {
-            res.json('on')
+            res.json('off')
         })
     } else {
         process.env.LIGHT = 'off'
         Light.off((r) => {
-            res.json('off')
+            res.json('on')
         })
     }
 })
