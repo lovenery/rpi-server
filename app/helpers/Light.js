@@ -6,7 +6,7 @@ module.exports = {
     off
 }
 
-const pin = 2
+const pin = 3
 rpio.open(pin, rpio.OUTPUT, rpio.LOW)
 
 function toggle() {
