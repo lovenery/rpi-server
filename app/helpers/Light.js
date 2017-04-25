@@ -8,13 +8,13 @@ module.exports = {
     off
 }
 
-function on() {
+function on(cb) {
   exec(onLight, function(err, stdout, stderr) {
     cb(stdout)
   })
 }
 
-function off() {
+function off(cb) {
   exec(offLight, function(err, stdout, stderr) {
     cb(stdout)
   })
