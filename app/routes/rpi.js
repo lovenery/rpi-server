@@ -2,6 +2,7 @@ var express = require('express')
 var router = express.Router()
 const rpio = require('rpio') ///
 const Move = require('../helpers/Move') ///
+const Light = require('../helpers/Light')
 const Sensor = require('../helpers/Sensor')
 
 // router.post('/led', function(req, res){
@@ -28,6 +29,11 @@ router.post('/move', function(req, res) {
     process.env.direction = direction
     Move.start(direction) ///
     res.json(req.body)
+})
+
+router.post('/light', function(req, res) {
+    Light.toggle() ///
+    res.json('toggle Light')
 })
 
 module.exports = router
