@@ -32,7 +32,8 @@ function humidity (cb) {
 module.exports = {
     get,
     sonic,
-    temperature
+    temperature,
+    humidity
 }
 
 //exec(cmd, function(error, stdout, stderr) {
