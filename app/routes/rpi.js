@@ -23,6 +23,11 @@ router.post('/temperature', function(req, res) {
         res.json(ds)
     })
 })
+router.post('/humidity', function(req, res) {
+    Sensor.humidity(function (ds) {
+        res.json(ds)
+    })
+})
 
 router.post('/move', function(req, res) {
     let direction = req.body.direction

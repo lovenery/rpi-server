@@ -23,6 +23,11 @@ function temperature (cb) {
         cb(reply)
     })
 }
+function humidity (cb) {
+    client.get("humidity", (err, reply) => {
+        cb(reply)
+    })
+}
 
 module.exports = {
     get,
