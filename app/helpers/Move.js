@@ -1,23 +1,26 @@
-const rpio = require('rpio')
+// const rpio = require('rpio')
+const exec = require('child_process').exec
+const path = require('path')
+const Forward = path.resolve(__dirname, '../../bin/move_forward.py')
+const Backward = path.resolve(__dirname, '../../bin/move_backward.py')
 const Sensor = require('./Sensor')
 
 module.exports = {
     forward,
     backward,
-    trunleft,
-    trunright,
+    turnLeft,
+    turnRight,
     start
 }
 
-const lpin1 = 35;
-const lpin2 = 37;
-const rpin1 = 38;
-const rpin2 = 40;
-
-rpio.open(lpin1, rpio.OUTPUT, rpio.LOW);
-rpio.open(lpin2, rpio.OUTPUT, rpio.LOW);
-rpio.open(rpin1, rpio.OUTPUT, rpio.LOW);
-rpio.open(rpin2, rpio.OUTPUT, rpio.LOW);
+// const lpin1 = 35;
+// const lpin2 = 37;
+// const rpin1 = 38;
+// const rpin2 = 40;
+// rpio.open(lpin1, rpio.OUTPUT, rpio.LOW);
+// rpio.open(lpin2, rpio.OUTPUT, rpio.LOW);
+// rpio.open(rpin1, rpio.OUTPUT, rpio.LOW);
+// rpio.open(rpin2, rpio.OUTPUT, rpio.LOW);
 
 function stop() {
     rpio.write(lpin1, rpio.LOW);
@@ -27,38 +30,41 @@ function stop() {
     resume()
 }
 
-const sleepTime = 500
+// const sleepTime = 500
 function forward() {
-    rpio.write(lpin1, rpio.HIGH);
-    rpio.write(lpin2, rpio.LOW);
-    rpio.write(rpin1, rpio.HIGH);
-    rpio.write(rpin2, rpio.LOW);
-    rpio.msleep(sleepTime);
-    stop()
+    // rpio.write(lpin1, rpio.HIGH);
+    // rpio.write(lpin2, rpio.LOW);
+    // rpio.write(rpin1, rpio.HIGH);
+    // rpio.write(rpin2, rpio.LOW);
+    // rpio.msleep(sleepTime);
+    // stop()
+    exec(Forward, function (err, stdout, stderr) {
+        resume()
+    })
 }
 function backward() {
-    rpio.write(lpin1, rpio.LOW);
-    rpio.write(lpin2, rpio.HIGH);
-    rpio.write(rpin1, rpio.LOW);
-    rpio.write(rpin2, rpio.HIGH);
-    rpio.msleep(sleepTime);
-    stop()
+    // rpio.write(lpin1, rpio.LOW);
+    // rpio.write(lpin2, rpio.HIGH);
+    // rpio.write(rpin1, rpio.LOW);
+    // rpio.write(rpin2, rpio.HIGH);
+    // rpio.msleep(sleepTime);
+    // stop()
 }
-function trunleft() {
-    rpio.write(lpin1, rpio.LOW);
-    rpio.write(lpin2, rpio.LOW);
-    rpio.write(rpin1, rpio.HIGH);
-    rpio.write(rpin2, rpio.LOW);
-    rpio.msleep(sleepTime);
-    stop()
+function turnLeft() {
+    // rpio.write(lpin1, rpio.LOW);
+    // rpio.write(lpin2, rpio.LOW);
+    // rpio.write(rpin1, rpio.HIGH);
+    // rpio.write(rpin2, rpio.LOW);
+    // rpio.msleep(sleepTime);
+    // stop()
 }
-function trunright() {
-    rpio.write(lpin1, rpio.HIGH);
-    rpio.write(lpin2, rpio.LOW);
-    rpio.write(rpin1, rpio.LOW);
-    rpio.write(rpin2, rpio.LOW);
-    rpio.msleep(sleepTime);
-    stop()
+function turnRight() {
+    // rpio.write(lpin1, rpio.HIGH);
+    // rpio.write(lpin2, rpio.LOW);
+    // rpio.write(rpin1, rpio.LOW);
+    // rpio.write(rpin2, rpio.LOW);
+    // rpio.msleep(sleepTime);
+    // stop()
 }
 
 function start() {
@@ -70,10 +76,10 @@ function start() {
             backward()
             break
         case "l":
-            trunleft()
+            turnLeft()
             break
         case "r":
-            trunright()
+            turnRight()
         default:
             break
     }
