@@ -1,15 +1,14 @@
-// old cmd
-const exec = require('child_process').exec
-const path = require('path')
-const cmd = path.resolve(__dirname, '../../bin/ultra_sonic.py')
+// old way
+// const exec = require('child_process').exec
+// const path = require('path')
+// const cmd = path.resolve(__dirname, '../../bin/ultra_sonic.py')
+// function get(cb) {
+//     exec(cmd, function(err, stdout, stderr) {
+//         cb(stdout)
+//     })
+// }
 
-function get(cb) {
-    exec(cmd, function(err, stdout, stderr) {
-        cb(stdout)        
-    })
-}
-
-// new redis
+// new redis way
 const redis = require('redis')
 const client = redis.createClient()
 
@@ -30,12 +29,8 @@ function humidity (cb) {
 }
 
 module.exports = {
-    get,
+    // get,
     sonic,
     temperature,
     humidity
 }
-
-//exec(cmd, function(error, stdout, stderr) {
-//  console.log(stdout);
-//});
