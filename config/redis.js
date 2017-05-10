@@ -7,6 +7,7 @@ module.exports = function () {
         console.log('Connected to Redis...')
         client.set("distance", 1)
         client.set("temperature", 2)
+        client.set("humidity", 3)
     })
     client.on("error", function (err) {
         console.log("Redis Error..." + err)
