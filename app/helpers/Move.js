@@ -13,7 +13,7 @@ const lpin1 = 35;
 const lpin2 = 37;
 const rpin1 = 38;
 const rpin2 = 40;
-const sleepTime = 500
+const sleepTime = 300
 
 rpio.open(lpin1, rpio.OUTPUT, rpio.LOW);
 rpio.open(lpin2, rpio.OUTPUT, rpio.LOW);
